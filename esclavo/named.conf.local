@@ -1,0 +1,20 @@
+//
+// Do any local configuration here
+//
+
+zone "example.com" {
+    type slave;
+    file "/var/cache/bind/db.example.com";
+    masters { 192.168.50.4; };  # Master IP
+};
+
+zone "50.168.192.in-addr.arpa" {
+    type slave;
+    file "/var/cache/bind/db.50.168.192";
+    masters { 192.168.50.4; };  # Master IP
+};
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
